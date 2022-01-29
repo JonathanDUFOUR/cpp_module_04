@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:25 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 02:11:58 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/29 05:07:27 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Cat::Cat(void) :
 	<< "Creating Cat "
 	<< this->type
 	<< std::endl;
+	this->_mind = new Brain;
 }
 
 Cat::Cat(Cat const &src) :
@@ -45,6 +46,7 @@ Cat::~Cat(void)
 	<< "R.I.P. Cat "
 	<< this->type
 	<< std::endl;
+	delete this->_mind;
 }
 
 // ************************************************************************* //

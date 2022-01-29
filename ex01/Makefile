@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/28 20:30:55 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/29 03:29:57 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/29 03:39:11 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ PRV_DIR			=	private/
 SRC				=	\
 					${addprefix class/,	\
 						Animal.cpp		\
+						Brain.cpp		\
 						Cat.cpp			\
 						Dog.cpp			\
 						WrongAnimal.cpp	\

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:33:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 02:00:24 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/29 03:44:22 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 # include <iostream>
 # include "class/Animal.hpp"
+# include "class/Brain.hpp"
 
 class Dog : public Animal
 {
 private:
+	Brain	*_mind;
 
 protected:
 

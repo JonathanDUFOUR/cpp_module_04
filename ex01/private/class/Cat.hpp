@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:33:49 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 01:59:50 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/29 03:44:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 # define CAT_HPP
 
 # include <iostream>
-# include "Animal.hpp"
+# include "class/Animal.hpp"
+# include "class/Brain.hpp"
 
 class Cat : public Animal
 {
 private:
+	Brain	*_mind;
 
 protected:
 

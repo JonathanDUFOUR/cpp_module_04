@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 20:34:32 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 05:07:07 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 03:35:34 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 04:29:14 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class/Dog.hpp"
+#include "class/Brain.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
-Dog::Dog(void) :
-	Animal(std::string("dogType"))
+Brain::Brain(void)
 {
 	std::cout
-	<< "Creating Dog "
-	<< this->type
+	<< "Creating Brain"
 	<< std::endl;
-	this->_mind = new Brain;
 }
 
-Dog::Dog(Dog const &src) :
-	Animal(std::string("dogType"))
+Brain::Brain(Brain const &src)
 {
 	std::cout
-	<< "Creating Dog "
-	<< this->type
+	<< "Creating Brain"
 	<< std::endl;
 	*this = src;
 }
@@ -40,44 +35,53 @@ Dog::Dog(Dog const &src) :
 //                                Destructors                                //
 // ************************************************************************* //
 
-Dog::~Dog(void)
+Brain::~Brain(void)
 {
 	std::cout
-	<< "R.I.P. Dog "
-	<< this->type
+	<< "Brain has been destroyed"
 	<< std::endl;
-	delete this->_mind;
 }
 
 // ************************************************************************* //
 //                          Public Member Functions                          //
 // ************************************************************************* //
 
-void	Dog::makeSound(void) const
+void	Brain::setIdeas(std::string const *ideas)
 {
-	std::cout
-	<< "Dog "
-	<< this->type
-	<< " is making a sound: Woof"
-	<< std::endl;
+	int	i;
+
+	for ( i = 0 ; i < 100 ; ++i)
+		this->_ideas[i] = ideas[i];
+}
+
+std::string	*Brain::getIdeas(void) const
+{
+	return (std::string *)this->_ideas;
 }
 
 // ************************************************************************** //
 //                             Operator Overloads                             //
 // ************************************************************************** //
 
-Dog	&Dog::operator=(Dog const &rhs)
+Brain	&Brain::operator=(Brain const &rhs)
 {
+	unsigned int	i;
+
 	if (this != &rhs)
 	{
-		this->type = rhs.type;
+		for (i = 0 ; i < 100 ; ++i)
+			this->_ideas[i] = rhs._ideas[i];
 	}
 	return *this;
 }
 
-std::ostream	&operator<<(std::ostream &o, Dog const &rhs)
+std::ostream	&operator<<(std::ostream &o, Brain const &rhs)
 {
-	o << "Dog:" << std::endl
-	<< "\t" "type: " << rhs.getType() << std::endl;
+	unsigned int	i;
+
+	o << "Brain:" << std::endl
+	<< "\t" "_ideas: ";
+	for(i = 0 ; i < 100 ; ++i)
+		o << rhs.getIdeas()[i];
 	return o;
 }

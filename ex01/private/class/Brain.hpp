@@ -1,43 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 03:22:35 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 03:40:10 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 03:33:48 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 04:27:48 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
-# include "class/WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal
+class Brain
 {
 private:
+	std::string	_ideas[100];
 
 protected:
 
 public:
 	// Constructors
-	WrongCat(void);
-	WrongCat(WrongCat const &src);
+	Brain(void);
+	Brain(Brain const &src);
 
 	// Destructors
-	virtual ~WrongCat(void);
+	virtual ~Brain(void);
 
-	// Member functions
-	void	makeSound(void) const;
+	// Accessors
+	void		setIdeas(std::string const *ideas);
+
+	std::string	*getIdeas(void) const;
 
 	// Operator overloads
-	WrongCat	&operator=(WrongCat const &rhs);
+	Brain	&operator=(Brain const &rhs);
 };
 
-std::ostream	&operator<<(std::ostream &o, WrongCat const &rhs);
-
+std::ostream	&operator<<(std::ostream &o, Brain const &rhs);
 
 #endif
