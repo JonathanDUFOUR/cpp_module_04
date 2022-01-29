@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:05 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 02:06:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/29 05:38:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 class Animal
 {
-private:
-
 protected:
 	// Attributes
 	std::string	type;

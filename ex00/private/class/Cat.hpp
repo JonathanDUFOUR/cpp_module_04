@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:33:49 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 03:40:29 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/29 05:38:53 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 
 class Cat : public Animal
 {
-private:
-
-protected:
-
 public:
 	// Constructors
 	Cat(void);

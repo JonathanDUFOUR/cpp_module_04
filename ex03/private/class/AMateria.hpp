@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 03:33:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 05:39:32 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 05:35:55 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 05:37:38 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
 # include <iostream>
 
-class Brain
+class AMateria
 {
-private:
-	std::string	_ideas[100];
+protected:
 
 public:
 	// Constructors
-	Brain(void);
-	Brain(Brain const &src);
+	AMateria(void);
+	AMateria(AMateria const &src);
 
 	// Destructors
-	virtual ~Brain(void);
+	virtual ~AMateria(void);
 
 	// Accessors
-	void		setIdeas(std::string const *ideas);
-
-	std::string	*getIdeas(void) const;
 
 	// Operator overloads
-	Brain	&operator=(Brain const &rhs);
+	AMateria	&operator=(AMateria const &rhs);
 };
 
-std::ostream	&operator<<(std::ostream &o, Brain const &rhs);
+std::ostream	&operator<<(std::ostream &o, AMateria const &rhs);
 
 #endif

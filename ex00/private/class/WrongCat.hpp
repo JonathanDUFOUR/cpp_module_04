@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:22:35 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 03:40:41 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/29 05:39:09 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 
 class WrongCat : public WrongAnimal
 {
-private:
-
-protected:
-
 public:
 	// Constructors
 	WrongCat(void);
