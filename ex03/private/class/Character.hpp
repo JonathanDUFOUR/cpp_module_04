@@ -1,49 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 06:09:12 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 09:07:08 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 07:00:04 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 09:38:14 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
+# include "ICharacter.hpp"
 
-class ICharacter
+class Character : public ICharacter
 {
 private:
+	AMateria	*_inventory[4];
 
 protected:
-	std::string	_name;
 
 public:
 	// Constructors
-	ICharacter(void);
-	ICharacter(ICharacter const &src);
-	ICharacter(std::string const name);
+	Character(void);
+	Character(Character const &src);
+	Character(std::string const name);
 
 	// Destructors
-	virtual ~ICharacter(void);
+	virtual ~Character(void);
 
 	// Accessors
-	virtual std::string const	&getName(void) const = 0;
+	std::string const	&getName(void) const;
 
 	// Member functions
-	virtual void	equip(AMateria *m) = 0;
-	virtual void	unequip(int idx) = 0;
-	virtual void	use(int idx, ICharacter &target) = 0;
+	void	equip(AMateria *m);
+	void	unequip(int idx);
+	void	use(int idx, ICharacter &target);
 
 	// Operator overloads
-	ICharacter	&operator=(ICharacter const &rhs);
+	Character	&operator=(Character const &rhs);
 };
 
-std::ostream	&operator<<(std::ostream &o, ICharacter const &rhs);
+std::ostream	&operator<<(std::ostream &o, Character const &rhs);
 
 #endif

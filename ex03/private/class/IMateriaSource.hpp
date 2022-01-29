@@ -1,49 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 06:09:12 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 09:07:08 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 09:41:58 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 09:44:44 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
 # include <iostream>
 # include "AMateria.hpp"
 
-class ICharacter
+class IMateriaSource : public AMateria
 {
 private:
 
 protected:
-	std::string	_name;
 
 public:
 	// Constructors
-	ICharacter(void);
-	ICharacter(ICharacter const &src);
-	ICharacter(std::string const name);
+	IMateriaSource(void);
+	IMateriaSource(IMateriaSource const &src);
 
 	// Destructors
-	virtual ~ICharacter(void);
-
-	// Accessors
-	virtual std::string const	&getName(void) const = 0;
+	virtual ~IMateriaSource(void);
 
 	// Member functions
-	virtual void	equip(AMateria *m) = 0;
-	virtual void	unequip(int idx) = 0;
-	virtual void	use(int idx, ICharacter &target) = 0;
+	virtual void		learnMateria(AMateria *m) = 0;
+	virtual AMateria	*createMateria(std::string const &type) = 0;
 
 	// Operator overloads
-	ICharacter	&operator=(ICharacter const &rhs);
+	IMateriaSource	&operator=(IMateriaSource const &rhs);
 };
 
-std::ostream	&operator<<(std::ostream &o, ICharacter const &rhs);
+std::ostream	&operator<<(std::ostream &o, IMateriaSource const &rhs);
 
 #endif

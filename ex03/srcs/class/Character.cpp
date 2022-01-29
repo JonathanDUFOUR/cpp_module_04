@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                       :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 20:34:15 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 05:24:59 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 07:23:16 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 09:40:53 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class/AAnimal.hpp"
+#include "class/Character.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
-AAnimal::AAnimal(void) :
-	type("defaultType")
+Character::Character(void) :
+	ICharacter(),
+	_inventory()
 {
 	std::cout
-	<< "Creating AAnimal "
-	<< this->type
+	<< "Creating Character "
+	<< this->_name
 	<< std::endl;
 }
 
-AAnimal::AAnimal(AAnimal const &src) :
-	type(src.type)
+Character::Character(Character const &src) :
+	ICharacter(src._name),
+	_inventory()
 {
 	std::cout
-	<< "Creating AAnimal "
-	<< this->type
+	<< "Creating Character "
+	<< this->_name
 	<< std::endl;
-	*this = src;
 }
 
-AAnimal::AAnimal(std::string const type) :
-	type(type)
+Character::Character(std::string const name) :
+	ICharacter(name),
+	_inventory()
 {
 	std::cout
-	<< "Creating AAnimal "
-	<< this->type
+	<< "Creating Character "
+	<< this->_name
 	<< std::endl;
 }
 
@@ -48,39 +50,48 @@ AAnimal::AAnimal(std::string const type) :
 //                                Destructors                                //
 // ************************************************************************* //
 
-AAnimal::~AAnimal(void)
+Character::~Character(void)
 {
+	int	idx;
+
 	std::cout
-	<< "R.I.P. AAnimal "
-	<< this->type
+	<< "Destroying Character "
+	<< this->_name
 	<< std::endl;
+	for (idx = 0 ; idx < 4 ; ++idx)
+		if (this->_inventory[idx])
+			delete _inventory[idx];
 }
 
 // ************************************************************************* //
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-std::string	AAnimal::getType(void) const
+std::string const	&Character::getName(void) const
 {
-	return this->type;
+	return this->_name;
 }
 
-// ************************************************************************** //
-//                             Operator Overloads                             //
-// ************************************************************************** //
+// ************************************************************************* //
+//                          Public Member Functions                          //
+// ************************************************************************* //
 
-AAnimal	&AAnimal::operator=(AAnimal const &rhs)
+void	Character::equip(AMateria *m)
 {
-	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
-	return *this;
+	int	idx;
+
+	for (idx = 0 ; idx < 4 && this->_inventory[idx] ; ++idx);
+	if (idx < 4)
+		_inventory[idx] = m;
 }
 
-std::ostream	&operator<<(std::ostream &o, AAnimal const &rhs)
+void	Character::unequip(int idx)
 {
-	o << "AAnimal:" << std::endl
-	<< "\t" "type: " << rhs.getType() << std::endl;
-	return o;
+	this->_inventory[idx] = NULL;
+}
+
+void	Character::use(int idx, ICharacter &target)
+{
+	if (this->_inventory[idx])
+		this->_inventory[idx]->use(target);
 }
