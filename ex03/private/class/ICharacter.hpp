@@ -1,45 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 05:35:55 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:09:01 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 06:09:12 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 06:19:14 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
 # include <iostream>
-# include "class/ICharacter.hpp"
+# include "AMateria.hpp"
 
-class AMateria
+class ICharacter
 {
+private:
+
 protected:
-	std::string	type;
 
 public:
 	// Constructors
-	AMateria(void);
-	AMateria(AMateria const &src);
+	ICharacter(void);
+	ICharacter(ICharacter const &src);
 
 	// Destructors
-	virtual ~AMateria(void);
+	virtual ~ICharacter(void);
 
 	// Accessors
-	std::string const	&getType(void) const;
+	virtual std::string const	&getName(void) const = 0;
 
 	// Member functions
-	virtual AMateria	*clone(void) const = 0;
-	virtual void		use(ICharacter &target);
+	virtual void	equip(AMateria *m) = 0;
+	virtual void	unequip(int idx) = 0;
+	virtual void	use(int idx, ICharacter &target) = 0;
 
 	// Operator overloads
-	AMateria	&operator=(AMateria const &rhs);
+	ICharacter	&operator=(ICharacter const &rhs);
 };
 
-std::ostream	&operator<<(std::ostream &o, AMateria const &rhs);
+std::ostream	&operator<<(std::ostream &o, ICharacter const &rhs);
 
 #endif

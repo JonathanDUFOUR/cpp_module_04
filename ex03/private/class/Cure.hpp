@@ -1,45 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 05:35:55 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:09:01 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 06:21:40 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 06:22:18 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 # include <iostream>
-# include "class/ICharacter.hpp"
+# include "AMateria.hpp"
 
-class AMateria
+class Cure : public AMateria
 {
+private:
+
 protected:
-	std::string	type;
 
 public:
 	// Constructors
-	AMateria(void);
-	AMateria(AMateria const &src);
+	Cure(void);
+	Cure(Cure const &src);
 
 	// Destructors
-	virtual ~AMateria(void);
+	virtual ~Cure(void);
 
 	// Accessors
-	std::string const	&getType(void) const;
-
-	// Member functions
-	virtual AMateria	*clone(void) const = 0;
-	virtual void		use(ICharacter &target);
 
 	// Operator overloads
-	AMateria	&operator=(AMateria const &rhs);
+	Cure	&operator=(Cure const &rhs);
 };
 
-std::ostream	&operator<<(std::ostream &o, AMateria const &rhs);
+std::ostream	&operator<<(std::ostream &o, Cure const &rhs);
 
 #endif
