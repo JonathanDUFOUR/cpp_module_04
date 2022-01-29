@@ -1,82 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 05:41:55 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:31:08 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 06:25:48 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 06:51:32 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class/AMateria.hpp"
+#include "class/Cure.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
-AMateria::AMateria(void) :
-	type("defaultType")
+Cure::Cure(void) :
+	AMateria("cure")
 {
 	std::cout
-	<< "Creating AMateria"
+	<< "Creating Cure"
 	<< std::endl;
 }
 
-AMateria::AMateria(AMateria const &src) :
-	type(src.type)
+Cure::Cure(Cure const &src) :
+	AMateria("cure")
 {
 	std::cout
-	<< "Creating AMateria"
+	<< "Creating Cure"
 	<< std::endl;
 	*this = src;
-}
-
-AMateria::AMateria(std::string const &type) :
-	type(type)
-{
-	std::cout
-	<< "Creating AMateria"
-	<< std::endl;
 }
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-AMateria::~AMateria(void)
+Cure::~Cure(void)
 {
 	std::cout
-	<< "Destroying AMateria"
+	<< "Destroying Cure"
 	<< std::endl;
 }
 
 // ************************************************************************* //
-//                                 Accessors                                 //
+//                          Public Member Functions                          //
 // ************************************************************************* //
 
-std::string const	&AMateria::getType(void) const
+AMateria	*Cure::clone(void) const
 {
-	return this->type;
+	return new Cure();
 }
 
-// ************************************************************************** //
-//                             Operator Overloads                             //
-// ************************************************************************** //
-
-AMateria	&AMateria::operator=(AMateria const &rhs)
+void	Cure::use(ICharacter &target)
 {
-	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
-	return *this;
-}
-
-std::ostream	&operator<<(std::ostream &o, AMateria const &rhs)
-{
-	o << "AMateria:" << std::endl
-	<< "\t" "type: " << rhs.getType() << std::endl;
-	return o;
+	std::cout
+	<< "* heals "
+	<< target.getName()
+	<< "'s wounds *"
+	<< std::endl;
 }

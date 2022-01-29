@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 05:35:55 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:09:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/29 06:32:10 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
 	// Constructors
 	AMateria(void);
 	AMateria(AMateria const &src);
+	AMateria(std::string const &type);
 
 	// Destructors
 	virtual ~AMateria(void);

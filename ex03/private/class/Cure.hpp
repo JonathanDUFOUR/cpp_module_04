@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:21:40 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:22:18 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/29 06:47:30 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ public:
 	// Destructors
 	virtual ~Cure(void);
 
-	// Accessors
+	// Member functions
+	AMateria	*clone(void) const;
+	void		use(ICharacter &target);
 
 	// Operator overloads
 	Cure	&operator=(Cure const &rhs);

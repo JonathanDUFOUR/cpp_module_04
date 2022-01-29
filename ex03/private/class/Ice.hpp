@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:20:40 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:21:05 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/29 06:46:55 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ public:
 	// Destructors
 	virtual ~Ice(void);
 
-	// Accessors
+	// Member functions
+	AMateria	*clone(void) const;
+	void		use(ICharacter &target);
 
 	// Operator overloads
 	Ice	&operator=(Ice const &rhs);

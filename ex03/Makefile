@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 05:34:13 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/29 05:35:15 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/29 06:25:16 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,9 @@ PRV_DIR			=	private/
 SRC				=	\
 					${addprefix class/,	\
 						AMateria.cpp	\
+						Cure.cpp		\
+						Ice.cpp			\
+						ICharacter.cpp	\
 					}					\
 					main.cpp
 

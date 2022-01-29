@@ -1,82 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 05:41:55 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:31:08 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/29 06:26:03 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/29 06:46:01 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class/AMateria.hpp"
+#include "class/Ice.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
-AMateria::AMateria(void) :
-	type("defaultType")
+Ice::Ice(void) :
+	AMateria("ice")
 {
 	std::cout
-	<< "Creating AMateria"
+	<< "Creating Ice"
 	<< std::endl;
 }
 
-AMateria::AMateria(AMateria const &src) :
-	type(src.type)
+Ice::Ice(Ice const &src) :
+	AMateria("ice")
 {
 	std::cout
-	<< "Creating AMateria"
+	<< "Creating Ice"
 	<< std::endl;
 	*this = src;
-}
-
-AMateria::AMateria(std::string const &type) :
-	type(type)
-{
-	std::cout
-	<< "Creating AMateria"
-	<< std::endl;
 }
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-AMateria::~AMateria(void)
+Ice::~Ice(void)
 {
 	std::cout
-	<< "Destroying AMateria"
+	<< "Destroying Ice"
 	<< std::endl;
 }
 
 // ************************************************************************* //
-//                                 Accessors                                 //
+//                          Public Member Functions                          //
 // ************************************************************************* //
 
-std::string const	&AMateria::getType(void) const
+AMateria *Ice::clone(void) const
 {
-	return this->type;
+	return new Ice();
 }
 
-// ************************************************************************** //
-//                             Operator Overloads                             //
-// ************************************************************************** //
-
-AMateria	&AMateria::operator=(AMateria const &rhs)
+void	Ice::use(ICharacter &target)
 {
-	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
-	return *this;
-}
-
-std::ostream	&operator<<(std::ostream &o, AMateria const &rhs)
-{
-	o << "AMateria:" << std::endl
-	<< "\t" "type: " << rhs.getType() << std::endl;
-	return o;
+	std::cout
+	<< "* shoots an ice bolt at "
+	<< target.getName()
+	<< " *"
+	<< std::endl;
 }
