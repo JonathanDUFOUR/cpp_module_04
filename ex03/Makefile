@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 05:34:13 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/29 06:25:16 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/30 14:20:13 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,12 +34,15 @@ PRV_DIR			=	private/
 #            SOURCE FILES            #
 ######################################
 SRC				=	\
-					${addprefix class/,	\
-						AMateria.cpp	\
-						Cure.cpp		\
-						Ice.cpp			\
-						ICharacter.cpp	\
-					}					\
+					${addprefix class/,		\
+						AMateria.cpp		\
+						Character.cpp		\
+						Cure.cpp			\
+						Ice.cpp				\
+						ICharacter.cpp		\
+						IMateriaSource.cpp	\
+						MateriaSource.cpp	\
+					}						\
 					main.cpp
 
 ######################################

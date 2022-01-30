@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 05:35:55 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:32:10 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/30 16:05:01 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 # include <iostream>
 # include "class/ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria
 {
 protected:
+	// Attributes
 	std::string	type;
 
 public:
@@ -34,8 +37,9 @@ public:
 	std::string const	&getType(void) const;
 
 	// Member functions
-	virtual AMateria	*clone(void) const = 0;
 	virtual void		use(ICharacter &target);
+
+	virtual AMateria	*clone(void) const = 0;
 
 	// Operator overloads
 	AMateria	&operator=(AMateria const &rhs);

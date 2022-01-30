@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:26:03 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:46:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/30 15:43:29 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ Ice::~Ice(void)
 //                          Public Member Functions                          //
 // ************************************************************************* //
 
-AMateria *Ice::clone(void) const
-{
-	return new Ice();
-}
-
 void	Ice::use(ICharacter &target)
 {
 	std::cout
@@ -60,4 +55,29 @@ void	Ice::use(ICharacter &target)
 	<< target.getName()
 	<< " *"
 	<< std::endl;
+}
+
+AMateria *Ice::clone(void) const
+{
+	return new Ice();
+}
+
+// ************************************************************************** //
+//                             Operator Overloads                             //
+// ************************************************************************** //
+
+Ice	&Ice::operator=(Ice const &rhs)
+{
+	if (this != &rhs)
+	{
+		this->type = rhs.type;
+	}
+	return *this;
+}
+
+std::ostream	&operator<<(std::ostream &o, Ice const &rhs)
+{
+	o << "Ice:" << std::endl
+	<< "\t" "type: " << rhs.getType() << std::endl;
+	return o;
 }

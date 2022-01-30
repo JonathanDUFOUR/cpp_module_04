@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:33:49 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 05:38:11 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:05:43 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 class Cat : public Animal
 {
 private:
+	// Attributes
 	Brain	*_mind;
 
 public:

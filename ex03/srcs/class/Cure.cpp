@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:25:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:51:32 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/30 15:44:02 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ Cure::~Cure(void)
 //                          Public Member Functions                          //
 // ************************************************************************* //
 
-AMateria	*Cure::clone(void) const
-{
-	return new Cure();
-}
-
 void	Cure::use(ICharacter &target)
 {
 	std::cout
@@ -60,4 +55,29 @@ void	Cure::use(ICharacter &target)
 	<< target.getName()
 	<< "'s wounds *"
 	<< std::endl;
+}
+
+AMateria	*Cure::clone(void) const
+{
+	return new Cure();
+}
+
+// ************************************************************************** //
+//                             Operator Overloads                             //
+// ************************************************************************** //
+
+Cure	&Cure::operator=(Cure const &rhs)
+{
+	if (this != &rhs)
+	{
+		this->type = rhs.type;
+	}
+	return *this;
+}
+
+std::ostream	&operator<<(std::ostream &o, Cure const &rhs)
+{
+	o << "Cure:" << std::endl
+	<< "\t" "type: " << rhs.getType() << std::endl;
+	return o;
 }

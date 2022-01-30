@@ -1,43 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 20:33:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 17:05:52 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/30 12:50:00 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/30 17:08:58 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
 # include <iostream>
-# include "class/Animal.hpp"
-# include "class/Brain.hpp"
+# include "class/IMateriaSource.hpp"
 
-class Dog : public Animal
+class MateriaSource : public IMateriaSource
 {
 private:
 	// Attributes
-	Brain	*_mind;
+	AMateria	*_memory[4];
 
 public:
 	// Constructors
-	Dog(void);
-	Dog(Dog const &src);
+	MateriaSource(void);
+	MateriaSource(MateriaSource const &src);
 
 	// Destructors
-	virtual ~Dog(void);
+	virtual ~MateriaSource(void);
+
+	// Accessors
+	std::string const	&getSlotType(int const idx) const;
 
 	// Member functions
-	void	makeSound(void) const;
+	void		learnMateria(AMateria *m);
+
+	AMateria	*createMateria(std::string const &type);
 
 	// Operator overloads
-	Dog	&operator=(Dog const &rhs);
+	MateriaSource	&operator=(MateriaSource const &rhs);
 };
 
-std::ostream	&operator<<(std::ostream &o, Dog const &rhs);
+std::ostream	&operator<<(std::ostream &o, MateriaSource const &rhs);
+
 
 #endif

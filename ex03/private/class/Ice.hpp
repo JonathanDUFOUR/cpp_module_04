@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:20:40 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 06:46:55 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:08:19 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 # define ICE_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
+# include "class/AMateria.hpp"
 
 class Ice : public AMateria
 {
-private:
-
-protected:
-
 public:
 	// Constructors
 	Ice(void);
@@ -31,8 +27,9 @@ public:
 	virtual ~Ice(void);
 
 	// Member functions
-	AMateria	*clone(void) const;
 	void		use(ICharacter &target);
+
+	AMateria	*clone(void) const;
 
 	// Operator overloads
 	Ice	&operator=(Ice const &rhs);

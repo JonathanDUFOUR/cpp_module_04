@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 09:41:58 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 09:44:44 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:08:37 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 # define IMATERIASOURCE_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
+# include "class/AMateria.hpp"
 
-class IMateriaSource : public AMateria
+class AMateria;
+
+class IMateriaSource
 {
-private:
-
-protected:
-
 public:
 	// Constructors
 	IMateriaSource(void);
@@ -32,6 +30,7 @@ public:
 
 	// Member functions
 	virtual void		learnMateria(AMateria *m) = 0;
+
 	virtual AMateria	*createMateria(std::string const &type) = 0;
 
 	// Operator overloads

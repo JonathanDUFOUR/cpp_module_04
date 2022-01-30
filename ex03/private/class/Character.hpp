@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:00:04 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 09:38:14 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:08:03 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 # define CHARACTER_HPP
 
 # include <iostream>
-# include "ICharacter.hpp"
+# include "class/ICharacter.hpp"
 
 class Character : public ICharacter
 {
 private:
+	// Attributes
 	AMateria	*_inventory[4];
-
-protected:
 
 public:
 	// Constructors
@@ -34,11 +33,17 @@ public:
 
 	// Accessors
 	std::string const	&getName(void) const;
+	std::string const	&getSlotType(int const idx) const;
+
+	AMateria			*getSlot(int const idx) const;
 
 	// Member functions
 	void	equip(AMateria *m);
 	void	unequip(int idx);
 	void	use(int idx, ICharacter &target);
+
+	bool	isFilled(int const idx) const;
+
 
 	// Operator overloads
 	Character	&operator=(Character const &rhs);

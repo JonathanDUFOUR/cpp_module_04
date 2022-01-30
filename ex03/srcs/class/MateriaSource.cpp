@@ -1,100 +1,117 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 05:41:55 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 15:46:07 by jodufour         ###   ########.fr       */
+/*   Created: 2022/01/30 13:34:07 by jodufour          #+#    #+#             */
+/*   Updated: 2022/01/30 14:48:53 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class/AMateria.hpp"
+#include "class/MateriaSource.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
 // ************************************************************************** //
 
-AMateria::AMateria(void) :
-	type("defaultType")
+MateriaSource::MateriaSource(void) :
+	IMateriaSource(),
+	_memory()
 {
 	std::cout
-	<< "Creating AMateria "
-	<< this->type
+	<< "Creating MateriaSource"
 	<< std::endl;
 }
 
-AMateria::AMateria(AMateria const &src) :
-	type(src.type)
+MateriaSource::MateriaSource(MateriaSource const &src) :
+	IMateriaSource(src),
+	_memory()
 {
 	std::cout
-	<< "Creating AMateria "
-	<< this->type
+	<< "Creating MateriaSource"
 	<< std::endl;
 	*this = src;
-}
-
-AMateria::AMateria(std::string const &type) :
-	type(type)
-{
-	std::cout
-	<< "Creating AMateria "
-	<< this->type
-	<< std::endl;
 }
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-AMateria::~AMateria(void)
+MateriaSource::~MateriaSource(void)
 {
+	int	idx;
+
 	std::cout
-	<< "Destroying AMateria"
+	<< "Destroying MateriaSource"
 	<< std::endl;
+	for (idx = 0 ; idx < 4 ; ++idx)
+		delete this->_memory[idx];
 }
 
 // ************************************************************************* //
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-std::string const	&AMateria::getType(void) const
+std::string const	&MateriaSource::getSlotType(int const idx) const
 {
-	return this->type;
+	if (this->_memory[idx])
+		return this->_memory[idx]->getType();
+	return NULL;
 }
 
 // ************************************************************************* //
 //                          Public Member Functions                          //
 // ************************************************************************* //
 
-void	AMateria::use(ICharacter &target)
+void	MateriaSource::learnMateria(AMateria *m)
 {
-	std::cout
-	<< "* uses AMateria "
-	<< this->type
-	<< " to "
-	<< target.getName()
-	<< " *"
-	<< std::endl;
+	int	idx;
+
+	for (idx = 0 ; idx < 4 && this->_memory[idx] ; ++idx);
+	if (idx < 4)
+		_memory[idx] = m;
+}
+
+AMateria	*MateriaSource::createMateria(std::string const &type)
+{
+	int	idx;
+
+	for (idx = 0 ; idx < 4 && this->_memory[idx] ; ++idx)
+		if (!this->_memory[idx]->getType().compare(type))
+			return this->_memory[idx]->clone();
+	return NULL;
 }
 
 // ************************************************************************** //
 //                             Operator Overloads                             //
 // ************************************************************************** //
 
-AMateria	&AMateria::operator=(AMateria const &rhs)
+MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 {
+	int	idx;
+
 	if (this != &rhs)
 	{
-		this->type = rhs.type;
+		for (idx = 0 ; idx < 4 ; ++idx)
+		{
+			delete this->_memory[idx];
+			this->_memory[idx] = NULL;
+			if (rhs._memory[idx])
+				this->_memory[idx] = rhs._memory[idx]->clone();
+		}
 	}
 	return *this;
 }
 
-std::ostream	&operator<<(std::ostream &o, AMateria const &rhs)
+std::ostream	&operator<<(std::ostream &o, MateriaSource const &rhs)
 {
-	o << "AMateria:" << std::endl
-	<< "\t" "type: " << rhs.getType() << std::endl;
+	int	i;
+
+	o << "MateriaSource:" << std::endl
+	<< "\t" "memory:" << std::endl;
+	for (i = 0 ; i < 4 ; ++i)
+		o << "\t\t" "[" << i << "] " << rhs.getSlotType(i) << std::endl;
 	return o;
 }

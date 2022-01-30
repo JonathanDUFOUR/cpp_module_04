@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:09:12 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 09:07:08 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:08:27 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 # define ICHARACTER_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
+# include "class/AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
-private:
-
 protected:
+	// Attributes
 	std::string	_name;
 
 public:

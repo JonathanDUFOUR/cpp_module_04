@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:33:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 05:39:32 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:06:20 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class Brain
 {
 private:
+	// Attributes
 	std::string	_ideas[100];
 
 public:
