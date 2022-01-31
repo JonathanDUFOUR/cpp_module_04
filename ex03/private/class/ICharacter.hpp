@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:09:12 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 17:08:27 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:05:12 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,10 @@ class AMateria;
 
 class ICharacter
 {
-protected:
-	// Attributes
-	std::string	_name;
-
 public:
 	// Constructors
 	ICharacter(void);
 	ICharacter(ICharacter const &src);
-	ICharacter(std::string const name);
 
 	// Destructors
 	virtual ~ICharacter(void);
@@ -44,7 +39,5 @@ public:
 	// Operator overloads
 	ICharacter	&operator=(ICharacter const &rhs);
 };
-
-std::ostream	&operator<<(std::ostream &o, ICharacter const &rhs);
 
 #endif

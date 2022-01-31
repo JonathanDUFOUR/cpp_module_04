@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 09:41:58 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 17:08:37 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:06:28 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@ public:
 	// Operator overloads
 	IMateriaSource	&operator=(IMateriaSource const &rhs);
 };
-
-std::ostream	&operator<<(std::ostream &o, IMateriaSource const &rhs);
 
 #endif

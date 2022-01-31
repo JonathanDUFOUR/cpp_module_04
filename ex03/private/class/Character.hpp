@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:00:04 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 17:08:03 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:05:55 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Character : public ICharacter
 {
 private:
 	// Attributes
+	std::string	_name;
 	AMateria	*_inventory[4];
 
 public:
@@ -43,7 +44,6 @@ public:
 	void	use(int idx, ICharacter &target);
 
 	bool	isFilled(int const idx) const;
-
 
 	// Operator overloads
 	Character	&operator=(Character const &rhs);

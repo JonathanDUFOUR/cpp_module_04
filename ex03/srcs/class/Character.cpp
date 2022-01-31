@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:23:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 16:49:37 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:04:44 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 Character::Character(void) :
 	ICharacter(),
+	_name("defaultName"),
 	_inventory()
 {
 	std::cout
@@ -27,7 +28,8 @@ Character::Character(void) :
 }
 
 Character::Character(Character const &src) :
-	ICharacter(src._name),
+	ICharacter(),
+	_name(src._name),
 	_inventory()
 {
 	std::cout
@@ -38,7 +40,8 @@ Character::Character(Character const &src) :
 }
 
 Character::Character(std::string const name) :
-	ICharacter(name),
+	ICharacter(),
+	_name(name),
 	_inventory()
 {
 	std::cout

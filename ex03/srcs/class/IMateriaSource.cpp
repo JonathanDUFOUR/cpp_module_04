@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 09:53:46 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 14:48:37 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:05:38 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,4 @@ IMateriaSource::~IMateriaSource(void)
 IMateriaSource	&IMateriaSource::operator=(IMateriaSource const &rhs __attribute__((unused)))
 {
 	return *this;
-}
-
-std::ostream	&operator<<(std::ostream &o, IMateriaSource const &rhs __attribute__((unused)))
-{
-	o << "IMateriaSource:" << std::endl;
-	return o;
 }

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:10:53 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/29 09:07:56 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:05:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,19 @@
 //                                Constructors                                //
 // ************************************************************************** //
 
-ICharacter::ICharacter(void) :
-	_name("defaultName")
+ICharacter::ICharacter(void)
 {
 	std::cout
-	<< "Creating ICharacter "
-	<< this->_name
+	<< "Creating ICharacter"
 	<< std::endl;
 }
 
-ICharacter::ICharacter(ICharacter const &src) :
-	_name(src._name)
+ICharacter::ICharacter(ICharacter const &src)
 {
 	std::cout
-	<< "Creating ICharacter "
-	<< this->_name
+	<< "Creating ICharacter"
 	<< std::endl;
 	*this = src;
-}
-
-ICharacter::ICharacter(std::string const name) :
-	_name(name)
-{
-	std::cout
-	<< "Creating ICharacter "
-	<< this->_name
-	<< std::endl;
 }
 
 // ************************************************************************* //
@@ -51,8 +38,7 @@ ICharacter::ICharacter(std::string const name) :
 ICharacter::~ICharacter(void)
 {
 	std::cout
-	<< "Destroying ICharacter "
-	<< this->_name
+	<< "Destroying ICharacter"
 	<< std::endl;
 }
 
@@ -60,18 +46,7 @@ ICharacter::~ICharacter(void)
 //                             Operator Overloads                             //
 // ************************************************************************** //
 
-ICharacter	&ICharacter::operator=(ICharacter const &rhs)
+ICharacter	&ICharacter::operator=(ICharacter const &rhs __attribute__((unused)))
 {
-	if (this != &rhs)
-	{
-		this->_name = rhs.getName();
-	}
 	return *this;
-}
-
-std::ostream	&operator<<(std::ostream &o, ICharacter const &rhs)
-{
-	o << "ICharacter:" << std::endl
-	<< "\t" "name: " << rhs.getName() << std::endl;
-	return o;
 }
