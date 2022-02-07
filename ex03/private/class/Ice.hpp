@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:20:40 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 17:08:19 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/07 03:50:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 
 	AMateria	*clone(void) const;
 
-	// Operator overloads
+	// Operators
 	Ice	&operator=(Ice const &rhs);
 };
 

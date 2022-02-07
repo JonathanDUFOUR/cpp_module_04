@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:33:49 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 17:05:43 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/07 03:50:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	// Member functions
 	void	makeSound(void) const;
 
-	// Operator overloads
+	// Operators
 	Cat	&operator=(Cat const &rhs);
 };
 

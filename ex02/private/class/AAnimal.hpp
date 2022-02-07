@@ -36,7 +36,7 @@ public:
 	// Member functions
 	virtual void	makeSound(void) const = 0;
 
-	// Operator overloads
+	// Operators
 	AAnimal	&operator=(AAnimal const &rhs);
 };
 

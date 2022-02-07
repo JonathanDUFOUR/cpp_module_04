@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:00:04 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/31 18:05:55 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/07 03:50:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ public:
 
 	bool	isFilled(int const idx) const;
 
-	// Operator overloads
+	// Operators
 	Character	&operator=(Character const &rhs);
 };
 

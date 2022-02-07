@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:09:12 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/31 18:05:12 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/07 03:50:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
 	virtual void	unequip(int idx) = 0;
 	virtual void	use(int idx, ICharacter &target) = 0;
 
-	// Operator overloads
+	// Operators
 	ICharacter	&operator=(ICharacter const &rhs);
 };
 

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:33:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/30 17:05:33 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/07 03:50:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 
 	std::string	*getIdeas(void) const;
 
-	// Operator overloads
+	// Operators
 	Brain	&operator=(Brain const &rhs);
 };
 
