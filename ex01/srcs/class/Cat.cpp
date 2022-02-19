@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:25 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:20:16 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/19 22:26:03 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,25 @@
 // ************************************************************************** //
 
 Cat::Cat(void) :
-	Animal(std::string("catType"))
+	Animal(std::string("catType")),
+	_mind(new Brain)
 {
-	std::cout
-	<< "Creating Cat "
-	<< this->type
-	<< std::endl;
-	this->_mind = new Brain;
+	if (DEBUG)
+		std::cout
+		<< "Creating Cat "
+		<< this->_type
+		<< std::endl;
 }
 
 Cat::Cat(Cat const &src) :
-	Animal(std::string("catType"))
+	Animal(src._type),
+	_mind(new Brain(*src._mind))
 {
-	std::cout
-	<< "Creating Cat "
-	<< this->type
-	<< std::endl;
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating Cat "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -42,11 +44,24 @@ Cat::Cat(Cat const &src) :
 
 Cat::~Cat(void)
 {
-	std::cout
-	<< "R.I.P. Cat "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying Cat "
+		<< std::endl;
 	delete this->_mind;
+}
+
+// ************************************************************************* //
+//                                 Accessors                                 //
+// ************************************************************************* //
+
+Brain const	&Cat::getMind(void) const
+{
+	if (DEBUG)
+		std::cout
+		<< "Calling Cat::getMind()"
+		<< std::endl;
+	return (*this->_mind);
 }
 
 // ************************************************************************* //
@@ -55,9 +70,13 @@ Cat::~Cat(void)
 
 void	Cat::makeSound(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Cat::makeSound()"
+		<< std::endl;
 	std::cout
 	<< "Cat "
-	<< this->type
+	<< this->_type
 	<< " is making a sound: Meow"
 	<< std::endl;
 }
@@ -68,9 +87,15 @@ void	Cat::makeSound(void) const
 
 Cat	&Cat::operator=(Cat const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Cat::operator=()"
+		<< std::endl;
 	if (this != &rhs)
 	{
-		this->type = rhs.type;
+		this->_type = rhs._type;
+		delete this->_mind;
+		this->_mind = new Brain(*rhs._mind);
 	}
 	return *this;
 }
@@ -78,6 +103,7 @@ Cat	&Cat::operator=(Cat const &rhs)
 std::ostream	&operator<<(std::ostream &o, Cat const &rhs)
 {
 	o << "Cat:" << std::endl
-	<< "\t" "type: " << rhs.getType() << std::endl;
+	<< "\t" "type: " << rhs.getType() << std::endl
+	<< "\t" "mind: " << rhs.getMind() << std::endl;
 	return o;
 }

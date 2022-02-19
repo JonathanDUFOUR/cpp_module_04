@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:35:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:21:14 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/19 22:22:45 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@
 
 Brain::Brain(void)
 {
-	std::cout
-	<< "Creating Brain"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating Brain"
+		<< std::endl;
 }
 
-Brain::Brain(Brain const &src)
+Brain::Brain(Brain const &src) :
+	_ideas(src._ideas)
 {
-	std::cout
-	<< "Creating Brain"
-	<< std::endl;
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating Brain"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -37,26 +39,23 @@ Brain::Brain(Brain const &src)
 
 Brain::~Brain(void)
 {
-	std::cout
-	<< "Brain has been destroyed"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying Brain"
+		<< std::endl;
 }
 
 // ************************************************************************* //
 //                          Public Member Functions                          //
 // ************************************************************************* //
 
-void	Brain::setIdeas(std::string const *ideas)
+std::string	const &Brain::getIdea(unsigned int const idx) const
 {
-	int	i;
-
-	for ( i = 0 ; i < 100 ; ++i)
-		this->_ideas[i] = ideas[i];
-}
-
-std::string	*Brain::getIdeas(void) const
-{
-	return (std::string *)this->_ideas;
+	if (DEBUG)
+		std::cout
+		<< "Calling Brain::getIdea()"
+		<< std::endl;
+	return (std::string const &)this->_ideas[idx];
 }
 
 // ************************************************************************* //
@@ -67,11 +66,13 @@ Brain	&Brain::operator=(Brain const &rhs)
 {
 	unsigned int	i;
 
+	if (DEBUG)
+		std::cout
+		<< "Calling Brain::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
 		for (i = 0 ; i < 100 ; ++i)
 			this->_ideas[i] = rhs._ideas[i];
-	}
 	return *this;
 }
 
@@ -80,8 +81,14 @@ std::ostream	&operator<<(std::ostream &o, Brain const &rhs)
 	unsigned int	i;
 
 	o << "Brain:" << std::endl
-	<< "\t" "_ideas: ";
-	for(i = 0 ; i < 100 ; ++i)
-		o << rhs.getIdeas()[i];
+	<< "\t" "ideas: {";
+	i = 0;
+	while (i < 100)
+	{
+		o << rhs.getIdea(i);
+		if (++i < 100)
+			o << ", ";
+	}
+	o << "}" << std::endl;
 	return o;
 }

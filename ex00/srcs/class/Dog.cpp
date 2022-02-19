@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:32 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:17:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/18 10:08:04 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,21 @@
 Dog::Dog(void) :
 	Animal(std::string("dogType"))
 {
-	std::cout
-	<< "Creating Dog "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating Dog "
+		<< this->_type
+		<< std::endl;
 }
 
 Dog::Dog(Dog const &src) :
-	Animal(std::string("dogType"))
+	Animal(src._type)
 {
-	std::cout
-	<< "Creating Dog "
-	<< this->type
-	<< std::endl;
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating Dog "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -41,10 +42,11 @@ Dog::Dog(Dog const &src) :
 
 Dog::~Dog(void)
 {
-	std::cout
-	<< "R.I.P. Dog "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying Dog "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -53,9 +55,13 @@ Dog::~Dog(void)
 
 void	Dog::makeSound(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Dog::makeSound()"
+		<< std::endl;
 	std::cout
 	<< "Dog "
-	<< this->type
+	<< this->_type
 	<< " is making a sound: Woof"
 	<< std::endl;
 }
@@ -66,10 +72,12 @@ void	Dog::makeSound(void) const
 
 Dog	&Dog::operator=(Dog const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Dog::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
+		this->_type = rhs._type;
 	return *this;
 }
 

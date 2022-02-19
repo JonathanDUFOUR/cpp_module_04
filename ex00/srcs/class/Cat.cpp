@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:25 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:17:19 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/18 10:07:18 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,21 @@
 Cat::Cat(void) :
 	Animal(std::string("catType"))
 {
-	std::cout
-	<< "Creating Cat "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating Cat "
+		<< this->_type
+		<< std::endl;
 }
 
 Cat::Cat(Cat const &src) :
-	Animal(std::string("catType"))
+	Animal(src._type)
 {
-	std::cout
-	<< "Creating Cat "
-	<< this->type
-	<< std::endl;
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating Cat "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -41,10 +42,11 @@ Cat::Cat(Cat const &src) :
 
 Cat::~Cat(void)
 {
-	std::cout
-	<< "R.I.P. Cat "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying Cat "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -53,9 +55,13 @@ Cat::~Cat(void)
 
 void	Cat::makeSound(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Cat::makeSound()"
+		<< std::endl;
 	std::cout
 	<< "Cat "
-	<< this->type
+	<< this->_type
 	<< " is making a sound: Meow"
 	<< std::endl;
 }
@@ -66,10 +72,12 @@ void	Cat::makeSound(void) const
 
 Cat	&Cat::operator=(Cat const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Cat::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
+		this->_type = rhs._type;
 	return *this;
 }
 

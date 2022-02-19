@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:33:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 03:50:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/19 22:46:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include "class/Animal.hpp"
+
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
 
 class Dog : public Animal
 {
@@ -27,7 +31,7 @@ public:
 	virtual ~Dog(void);
 
 	// Member functions
-	void	makeSound(void) const;
+	virtual void	makeSound(void) const;
 
 	// Operators
 	Dog	&operator=(Dog const &rhs);

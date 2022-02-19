@@ -16,32 +16,24 @@
 //                                Constructors                                //
 // ************************************************************************** //
 
-AAnimal::AAnimal(void) :
-	type("defaultType")
+AAnimal::AAnimal(std::string const &type) :
+	_type(type)
 {
-	std::cout
-	<< "Creating AAnimal "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating AAnimal "
+		<< this->_type
+		<< std::endl;
 }
 
 AAnimal::AAnimal(AAnimal const &src) :
-	type(src.type)
+	_type(src._type)
 {
-	std::cout
-	<< "Creating AAnimal "
-	<< this->type
-	<< std::endl;
-	*this = src;
-}
-
-AAnimal::AAnimal(std::string const type) :
-	type(type)
-{
-	std::cout
-	<< "Creating AAnimal "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating AAnimal "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -50,19 +42,23 @@ AAnimal::AAnimal(std::string const type) :
 
 AAnimal::~AAnimal(void)
 {
-	std::cout
-	<< "R.I.P. AAnimal "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying AAnimal"
+		<< std::endl;
 }
 
 // ************************************************************************* //
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-std::string	AAnimal::getType(void) const
+std::string const	&AAnimal::getType(void) const
 {
-	return this->type;
+	if (DEBUG)
+		std::cout
+		<< "Calling AAnimal::getType()"
+		<< std::endl;
+	return this->_type;
 }
 
 // ************************************************************************* //
@@ -71,10 +67,12 @@ std::string	AAnimal::getType(void) const
 
 AAnimal	&AAnimal::operator=(AAnimal const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling AAnimal::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
+		this->_type = rhs._type;
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:23:53 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:20:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/19 16:56:46 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,21 @@
 WrongCat::WrongCat(void) :
 	WrongAnimal(std::string("wrongCatType"))
 {
-	std::cout
-	<< "Creating WrongCat "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating WrongCat "
+		<< this->_type
+		<< std::endl;
 }
 
 WrongCat::WrongCat(WrongCat const &src) :
-	WrongAnimal(std::string("wrongCatType"))
+	WrongAnimal(src._type)
 {
-	std::cout
-	<< "Creating WrongCat "
-	<< this->type
-	<< std::endl;
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating WrongCat "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -42,10 +43,11 @@ WrongCat::WrongCat(WrongCat const &src) :
 
 WrongCat::~WrongCat(void)
 {
-	std::cout
-	<< "R.I.P. WrongCat "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying WrongCat "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -54,9 +56,13 @@ WrongCat::~WrongCat(void)
 
 void	WrongCat::makeSound(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling WrongCat::makeSound()"
+		<< std::endl;
 	std::cout
 	<< "WrongCat "
-	<< this->type
+	<< this->_type
 	<< " is making a sound: Meow"
 	<< std::endl;
 }
@@ -67,10 +73,12 @@ void	WrongCat::makeSound(void) const
 
 WrongCat	&WrongCat::operator=(WrongCat const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling WrongCat::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
+		this->_type = rhs._type;
 	return *this;
 }
 

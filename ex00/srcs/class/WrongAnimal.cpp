@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 02:15:15 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:17:49 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/19 12:48:28 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,24 @@
 //                                Constructors                                //
 // ************************************************************************** //
 
-WrongAnimal::WrongAnimal(void) :
-	type("defaultType")
+WrongAnimal::WrongAnimal(std::string const &type) :
+	_type(type)
 {
-	std::cout
-	<< "Creating WrongAnimal "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating WrongAnimal "
+		<< this->_type
+		<< std::endl;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const &src) :
-	type(src.type)
+	_type(src._type)
 {
-	std::cout
-	<< "Creating WrongAnimal "
-	<< this->type
-	<< std::endl;
-	*this = src;
-}
-
-WrongAnimal::WrongAnimal(std::string const type) :
-	type(type)
-{
-	std::cout
-	<< "Creating WrongAnimal "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating WrongAnimal "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -50,10 +42,11 @@ WrongAnimal::WrongAnimal(std::string const type) :
 
 WrongAnimal::~WrongAnimal(void)
 {
-	std::cout
-	<< "R.I.P. WrongAnimal "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying WrongAnimal "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -62,7 +55,11 @@ WrongAnimal::~WrongAnimal(void)
 
 std::string	WrongAnimal::getType(void) const
 {
-	return this->type;
+	if (DEBUG)
+		std::cout
+		<< "Calling WrongAnimal::getType()"
+		<< std::endl;
+	return this->_type;
 }
 
 // ************************************************************************* //
@@ -71,9 +68,13 @@ std::string	WrongAnimal::getType(void) const
 
 void	WrongAnimal::makeSound(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling WrongAnimal::makeSound()"
+		<< std::endl;
 	std::cout
 	<< "WrongAnimal "
-	<< this->type
+	<< this->_type
 	<< " is making a sound: ..."
 	<< std::endl;
 }
@@ -84,10 +85,12 @@ void	WrongAnimal::makeSound(void) const
 
 WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling WrongAnimal::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
+		this->_type = rhs._type;
 	return *this;
 }
 

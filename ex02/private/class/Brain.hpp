@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:33:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 03:50:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/19 22:19:17 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define BRAIN_HPP
 
 # include <iostream>
+
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
 
 class Brain
 {
@@ -30,9 +34,7 @@ public:
 	virtual ~Brain(void);
 
 	// Accessors
-	void		setIdeas(std::string const *ideas);
-
-	std::string	*getIdeas(void) const;
+	std::string const	&getIdea(unsigned int const idx) const;
 
 	// Operators
 	Brain	&operator=(Brain const &rhs);

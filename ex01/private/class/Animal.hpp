@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:05 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 03:50:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:30:50 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,26 @@
 
 # include <iostream>
 
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
+
 class Animal
 {
 protected:
 	// Attributes
-	std::string	type;
+	std::string	_type;
 
 public:
 	// Constructors
-	Animal(void);
+	Animal(std::string const &type = std::string("defaultType"));
 	Animal(Animal const &src);
-	Animal(std::string const type);
 
 	// Destructors
 	virtual ~Animal(void);
 
 	// Accessors
-	std::string	getType(void) const;
+	std::string const	&getType(void) const;
 
 	// Member functions
 	virtual void	makeSound(void) const;

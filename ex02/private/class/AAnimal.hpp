@@ -15,23 +15,26 @@
 
 # include <iostream>
 
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
+
 class AAnimal
 {
 protected:
 	// Attributes
-	std::string	type;
+	std::string	_type;
 
 public:
 	// Constructors
-	AAnimal(void);
+	AAnimal(std::string const &type = std::string("defaultType"));
 	AAnimal(AAnimal const &src);
-	AAnimal(std::string const type);
 
 	// Destructors
 	virtual ~AAnimal(void);
 
 	// Accessors
-	std::string	getType(void) const;
+	std::string const	&getType(void) const;
 
 	// Member functions
 	virtual void	makeSound(void) const = 0;

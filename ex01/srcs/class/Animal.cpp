@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:15 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:19:56 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/19 18:42:15 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,24 @@
 //                                Constructors                                //
 // ************************************************************************** //
 
-Animal::Animal(void) :
-	type("defaultType")
+Animal::Animal(std::string const &type) :
+	_type(type)
 {
-	std::cout
-	<< "Creating Animal "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating Animal "
+		<< this->_type
+		<< std::endl;
 }
 
 Animal::Animal(Animal const &src) :
-	type(src.type)
+	_type(src._type)
 {
-	std::cout
-	<< "Creating Animal "
-	<< this->type
-	<< std::endl;
-	*this = src;
-}
-
-Animal::Animal(std::string const type) :
-	type(type)
-{
-	std::cout
-	<< "Creating Animal "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating Animal "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -50,19 +42,24 @@ Animal::Animal(std::string const type) :
 
 Animal::~Animal(void)
 {
-	std::cout
-	<< "R.I.P. Animal "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying Animal "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-std::string	Animal::getType(void) const
+std::string const	&Animal::getType(void) const
 {
-	return this->type;
+	if (DEBUG)
+		std::cout
+		<< "Calling Animal::getType()"
+		<< std::endl;
+	return this->_type;
 }
 
 // ************************************************************************* //
@@ -71,9 +68,13 @@ std::string	Animal::getType(void) const
 
 void	Animal::makeSound(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Animal::makeSound()"
+		<< std::endl;
 	std::cout
 	<< "Animal "
-	<< this->type
+	<< this->_type
 	<< " is making a sound: ..."
 	<< std::endl;
 }
@@ -84,10 +85,12 @@ void	Animal::makeSound(void) const
 
 Animal	&Animal::operator=(Animal const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Animal::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
+		this->_type = rhs._type;
 	return *this;
 }
 
