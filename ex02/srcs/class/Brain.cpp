@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:35:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 18:42:05 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:19:35 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ Brain::Brain(void)
 		<< std::endl;
 }
 
-Brain::Brain(Brain const &src) :
-	_ideas(src._ideas)
+Brain::Brain(Brain const &src)
 {
+	int	idx;
+
 	if (DEBUG)
 		std::cout
 		<< "Creating Brain"
 		<< std::endl;
+	for (idx = 0 ; idx < 100 ; ++idx)
+		this->_ideas[idx] = src._ideas[idx];
 }
 
 // ************************************************************************* //
