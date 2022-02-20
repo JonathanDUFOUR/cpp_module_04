@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:00:04 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 19:29:41 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:35:47 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Character : public ICharacter
 {
 private:
 	// Attributes
-	std::string	_name;
-	AMateria	*_inventory[4];
+	std::string					_name;
+	AMateria					*_inventory[4];
 
 	static std::string const	_emptyType;
 

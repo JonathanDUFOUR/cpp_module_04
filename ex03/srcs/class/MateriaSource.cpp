@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 13:34:07 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 15:39:53 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:39:28 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ std::string const	&MateriaSource::getSlotType(int const idx) const
 		<< std::endl;
 	if (this->_memory[idx])
 		return this->_memory[idx]->getType();
-	return NULL;
+	return MateriaSource::_emptyType;
 }
 
 // ************************************************************************* //
@@ -138,3 +138,9 @@ std::ostream	&operator<<(std::ostream &o, MateriaSource const &rhs)
 		o << "\t\t" "[" << idx << "] " << rhs.getSlotType(idx) << std::endl;
 	return o;
 }
+
+// ************************************************************************** //
+//                             Private Attributes                             //
+// ************************************************************************** //
+
+std::string const	MateriaSource::_emptyType = std::string("empty");

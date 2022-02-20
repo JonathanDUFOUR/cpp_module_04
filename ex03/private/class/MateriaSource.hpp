@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 12:50:00 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 19:03:27 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:35:23 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ class MateriaSource : public IMateriaSource
 {
 private:
 	// Attributes
-	AMateria	*_memory[4];
+	AMateria					*_memory[4];
+
+	static std::string const	_emptyType;
 
 public:
 	// Constructors
