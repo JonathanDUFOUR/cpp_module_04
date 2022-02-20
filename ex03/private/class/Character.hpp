@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:00:04 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 19:03:05 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:29:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ private:
 	std::string	_name;
 	AMateria	*_inventory[4];
 
+	static std::string const	_emptyType;
+
 public:
 	// Constructors
 	Character(std::string const &name = std::string("defaultName"));
@@ -44,8 +46,6 @@ public:
 	void	equip(AMateria *m);
 	void	unequip(int const idx);
 	void	use(int const idx, ICharacter &target);
-
-	bool	isFilled(int const idx) const;
 
 	// Operators
 	Character	&operator=(Character const &rhs);

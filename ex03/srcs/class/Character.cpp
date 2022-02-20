@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:23:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 18:59:00 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:29:35 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ std::string const	&Character::getSlotType(int const idx) const
 		<< std::endl;
 	if (this->_inventory[idx])
 		return this->_inventory[idx]->getType();
-	return NULL;
+	return Character::_emptyType;
 }
 
 AMateria	*Character::getSlot(int const idx) const
@@ -137,17 +137,6 @@ void	Character::use(int const idx, ICharacter &target)
 	}
 }
 
-bool	Character::isFilled(int const idx) const
-{
-	if (DEBUG)
-		std::cout
-		<< "Calling Character::isFilled()"
-		<< std::endl;
-	if (this->_inventory[idx])
-		return true;
-	return false;
-}
-
 // ************************************************************************* //
 //                                 Operators                                 //
 // ************************************************************************* //
@@ -182,9 +171,12 @@ std::ostream	&operator<<(std::ostream &o, Character const &rhs)
 	<< "\t" "name: " << rhs.getName() << std::endl
 	<< "\t" "inventory: " << std::endl;
 	for (idx = 0 ; idx < 4 ; ++idx)
-		if (rhs.isFilled(idx))
-			o << "\t\t" "[" << idx << "] " << rhs.getSlotType(idx) << std::endl;
-		else
-			o << "\t\t" "[" << idx << "] " << "empty" << std::endl;
+		o << "\t\t" "[" << idx << "] " << rhs.getSlotType(idx) << std::endl;
 	return o;
 }
+
+// ************************************************************************** //
+//                             Private Attributes                             //
+// ************************************************************************** //
+
+std::string const	Character::_emptyType = std::string("empty");
