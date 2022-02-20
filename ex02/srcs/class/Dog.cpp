@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:32 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 22:33:50 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:42:57 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // ************************************************************************** //
 
 Dog::Dog(void) :
-	AAnimal(std::string("dogType")),
+	AAnimal(std::string("Dog")),
 	_mind(new Brain)
 {
 	if (DEBUG)
@@ -28,7 +28,7 @@ Dog::Dog(void) :
 }
 
 Dog::Dog(Dog const &src) :
-	AAnimal(std::string("dogType")),
+	AAnimal(src._type),
 	_mind(new Brain(*src._mind))
 {
 	if (DEBUG)

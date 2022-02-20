@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:33:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 22:19:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:12:44 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	virtual ~Brain(void);
 
 	// Accessors
-	std::string const	&getIdea(unsigned int const idx) const;
+	std::string const	&getIdea(int const idx) const;
 
 	// Operators
 	Brain	&operator=(Brain const &rhs);

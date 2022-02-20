@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 02:15:15 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 12:48:28 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:45:13 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ WrongAnimal::~WrongAnimal(void)
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-std::string	WrongAnimal::getType(void) const
+std::string const	&WrongAnimal::getType(void) const
 {
 	if (DEBUG)
 		std::cout

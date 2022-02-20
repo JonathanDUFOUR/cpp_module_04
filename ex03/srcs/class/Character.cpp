@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:23:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 15:49:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:59:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Character::Character(std::string const &name) :
 }
 
 Character::Character(Character const &src) :
-	ICharacter(),
+	ICharacter(src),
 	_name(src._name),
 	_inventory()
 {

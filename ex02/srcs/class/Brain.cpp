@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:35:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 22:22:45 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:42:05 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ Brain::~Brain(void)
 }
 
 // ************************************************************************* //
-//                          Public Member Functions                          //
+//                                 Accessors                                 //
 // ************************************************************************* //
 
-std::string	const &Brain::getIdea(unsigned int const idx) const
+std::string	const &Brain::getIdea(int const idx) const
 {
 	if (DEBUG)
 		std::cout
@@ -78,7 +78,7 @@ Brain	&Brain::operator=(Brain const &rhs)
 
 std::ostream	&operator<<(std::ostream &o, Brain const &rhs)
 {
-	unsigned int	i;
+	int	i;
 
 	o << "Brain:" << std::endl
 	<< "\t" "ideas: {";

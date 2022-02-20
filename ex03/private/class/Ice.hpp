@@ -6,14 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:20:40 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/18 09:31:25 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:03:17 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICE_HPP
 # define ICE_HPP
 
-# include <iostream>
 # include "class/AMateria.hpp"
 
 # ifndef DEBUG

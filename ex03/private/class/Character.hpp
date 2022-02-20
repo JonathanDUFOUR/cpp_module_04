@@ -6,14 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:00:04 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 12:18:02 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:03:05 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-# include <iostream>
 # include "class/ICharacter.hpp"
 
 # ifndef DEBUG

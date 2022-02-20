@@ -6,14 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:22:35 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/18 09:30:47 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:01:48 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
 
-# include <iostream>
 # include "class/WrongAnimal.hpp"
 
 # ifndef DEBUG

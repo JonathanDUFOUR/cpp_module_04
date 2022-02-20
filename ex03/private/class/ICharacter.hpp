@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:09:12 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/18 09:31:31 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:57:57 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ public:
 
 	// Member functions
 	virtual void	equip(AMateria *m) = 0;
-	virtual void	unequip(int idx) = 0;
-	virtual void	use(int idx, ICharacter &target) = 0;
+	virtual void	unequip(int const idx) = 0;
+	virtual void	use(int const idx, ICharacter &target) = 0;
 
 	// Operators
 	ICharacter	&operator=(ICharacter const &rhs);

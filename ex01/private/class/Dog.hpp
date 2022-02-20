@@ -6,14 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:33:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 22:47:14 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:00:43 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include <iostream>
 # include "class/Animal.hpp"
 # include "class/Brain.hpp"
 

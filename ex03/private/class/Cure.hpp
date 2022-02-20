@@ -6,14 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:21:40 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/18 09:31:19 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:03:13 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include <iostream>
 # include "class/AMateria.hpp"
 
 # ifndef DEBUG

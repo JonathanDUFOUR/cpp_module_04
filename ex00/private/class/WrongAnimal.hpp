@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:19:35 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/18 10:11:29 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:45:04 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	virtual ~WrongAnimal(void);
 
 	// Accessors
-	std::string	getType(void) const;
+	std::string const	&getType(void) const;
 
 	// Member functions
 	void	makeSound(void) const;

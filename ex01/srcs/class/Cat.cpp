@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:25 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 22:26:03 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:17:10 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // ************************************************************************** //
 
 Cat::Cat(void) :
-	Animal(std::string("catType")),
+	Animal(std::string("Cat")),
 	_mind(new Brain)
 {
 	if (DEBUG)
@@ -61,7 +61,7 @@ Brain const	&Cat::getMind(void) const
 		std::cout
 		<< "Calling Cat::getMind()"
 		<< std::endl;
-	return (*this->_mind);
+	return *this->_mind;
 }
 
 // ************************************************************************* //

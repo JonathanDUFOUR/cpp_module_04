@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:23:53 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 22:40:14 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:45:31 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // ************************************************************************** //
 
 WrongCat::WrongCat(void) :
-	WrongAnimal(std::string("wrongCatType"))
+	WrongAnimal(std::string("wrongCat"))
 {
 	if (DEBUG)
 		std::cout

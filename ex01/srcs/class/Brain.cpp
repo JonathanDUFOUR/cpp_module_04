@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:35:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 21:39:56 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:13:01 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ Brain::~Brain(void)
 //                          Public Member Functions                          //
 // ************************************************************************* //
 
-std::string const	&Brain::getIdea(unsigned int idx) const
+std::string const	&Brain::getIdea(int const idx) const
 {
 	if (DEBUG)
 		std::cout
@@ -64,29 +64,29 @@ std::string const	&Brain::getIdea(unsigned int idx) const
 
 Brain	&Brain::operator=(Brain const &rhs)
 {
-	unsigned int	i;
+	int	idx;
 
 	if (DEBUG)
 		std::cout
 		<< "Calling Brain::operator=()"
 		<< std::endl;
 	if (this != &rhs)
-		for (i = 0 ; i < 100 ; ++i)
-			this->_ideas[i] = rhs._ideas[i];
+		for (idx = 0 ; idx < 100 ; ++idx)
+			this->_ideas[idx] = rhs._ideas[idx];
 	return *this;
 }
 
 std::ostream	&operator<<(std::ostream &o, Brain const &rhs)
 {
-	unsigned int	i;
+	int	idx;
 
 	o << "Brain:" << std::endl
 	<< "\t" "ideas: {";
-	i = 0;
-	while (i < 100)
+	idx = 0;
+	while (idx < 100)
 	{
-		o << rhs.getIdea(i);
-		if (++i < 100)
+		o << rhs.getIdea(idx);
+		if (++idx < 100)
 			o << ", ";
 	}
 	o << "}" << std::endl;

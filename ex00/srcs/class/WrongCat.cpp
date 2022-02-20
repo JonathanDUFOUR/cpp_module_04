@@ -6,10 +6,9 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:23:53 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 12:46:10 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:44:25 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "class/WrongCat.hpp"
 
@@ -18,7 +17,7 @@
 // ************************************************************************** //
 
 WrongCat::WrongCat(void) :
-	WrongAnimal(std::string("wrongCatType"))
+	WrongAnimal(std::string("WrongCat"))
 {
 	if (DEBUG)
 		std::cout

@@ -6,14 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:33:49 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 22:48:44 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 19:01:27 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include <iostream>
 # include "class/AAnimal.hpp"
 # include "class/Brain.hpp"
 
