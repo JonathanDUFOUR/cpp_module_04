@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:10:53 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:23:35 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 15:43:17 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@
 
 ICharacter::ICharacter(void)
 {
-	std::cout
-	<< "Creating ICharacter"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating ICharacter"
+		<< std::endl;
 }
 
-ICharacter::ICharacter(ICharacter const &src)
+ICharacter::ICharacter(ICharacter const &src __attribute__((unused)))
 {
-	std::cout
-	<< "Creating ICharacter"
-	<< std::endl;
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating ICharacter"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -37,9 +38,10 @@ ICharacter::ICharacter(ICharacter const &src)
 
 ICharacter::~ICharacter(void)
 {
-	std::cout
-	<< "Destroying ICharacter"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying ICharacter"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -48,5 +50,9 @@ ICharacter::~ICharacter(void)
 
 ICharacter	&ICharacter::operator=(ICharacter const &rhs __attribute__((unused)))
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling ICharacter::operator=()"
+		<< std::endl;
 	return *this;
 }

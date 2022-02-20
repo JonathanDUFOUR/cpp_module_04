@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:26:03 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:23:03 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:29:33 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,21 @@
 // ************************************************************************** //
 
 Ice::Ice(void) :
-	AMateria("ice")
+	AMateria(std::string("ice"))
 {
-	std::cout
-	<< "Creating Ice"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating Ice"
+		<< std::endl;
 }
 
 Ice::Ice(Ice const &src) :
-	AMateria("ice")
+	AMateria(src._type)
 {
-	std::cout
-	<< "Creating Ice"
-	<< std::endl;
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating Ice"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -39,9 +40,10 @@ Ice::Ice(Ice const &src) :
 
 Ice::~Ice(void)
 {
-	std::cout
-	<< "Destroying Ice"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying Ice"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -50,6 +52,10 @@ Ice::~Ice(void)
 
 void	Ice::use(ICharacter &target)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Ice::use()"
+		<< std::endl;
 	std::cout
 	<< "* shoots an ice bolt at "
 	<< target.getName()
@@ -59,7 +65,11 @@ void	Ice::use(ICharacter &target)
 
 AMateria *Ice::clone(void) const
 {
-	return new Ice();
+	if (DEBUG)
+		std::cout
+		<< "Calling Ice::clone()"
+		<< std::endl;
+	return new Ice(*this);
 }
 
 // ************************************************************************* //
@@ -68,10 +78,12 @@ AMateria *Ice::clone(void) const
 
 Ice	&Ice::operator=(Ice const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Ice::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
+		this->_type = rhs._type;
 	return *this;
 }
 

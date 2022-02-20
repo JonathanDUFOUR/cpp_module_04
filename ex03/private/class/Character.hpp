@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:00:04 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/18 09:31:12 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:18:02 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ private:
 
 public:
 	// Constructors
-	Character(void);
+	Character(std::string const &name = std::string("defaultName"));
 	Character(Character const &src);
-	Character(std::string const name);
 
 	// Destructors
 	virtual ~Character(void);
@@ -44,8 +43,8 @@ public:
 
 	// Member functions
 	void	equip(AMateria *m);
-	void	unequip(int idx);
-	void	use(int idx, ICharacter &target);
+	void	unequip(int const idx);
+	void	use(int const idx, ICharacter &target);
 
 	bool	isFilled(int const idx) const;
 

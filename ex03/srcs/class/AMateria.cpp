@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 05:41:55 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:22:29 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:52:53 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,24 @@
 //                                Constructors                                //
 // ************************************************************************** //
 
-AMateria::AMateria(void) :
-	type("defaultType")
+AMateria::AMateria(std::string const &type) :
+	_type(type)
 {
-	std::cout
-	<< "Creating AMateria "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating AMateria "
+		<< this->_type
+		<< std::endl;
 }
 
 AMateria::AMateria(AMateria const &src) :
-	type(src.type)
+	_type(src._type)
 {
-	std::cout
-	<< "Creating AMateria "
-	<< this->type
-	<< std::endl;
-	*this = src;
-}
-
-AMateria::AMateria(std::string const &type) :
-	type(type)
-{
-	std::cout
-	<< "Creating AMateria "
-	<< this->type
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating AMateria "
+		<< this->_type
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -50,9 +42,10 @@ AMateria::AMateria(std::string const &type) :
 
 AMateria::~AMateria(void)
 {
-	std::cout
-	<< "Destroying AMateria"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying AMateria"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -61,7 +54,11 @@ AMateria::~AMateria(void)
 
 std::string const	&AMateria::getType(void) const
 {
-	return this->type;
+	if (DEBUG)
+		std::cout
+		<< "Calling AMateria::getType()"
+		<< std::endl;
+	return this->_type;
 }
 
 // ************************************************************************* //
@@ -70,9 +67,13 @@ std::string const	&AMateria::getType(void) const
 
 void	AMateria::use(ICharacter &target)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling AMateria::use()"
+		<< std::endl;
 	std::cout
 	<< "* uses AMateria "
-	<< this->type
+	<< this->_type
 	<< " to "
 	<< target.getName()
 	<< " *"
@@ -85,10 +86,12 @@ void	AMateria::use(ICharacter &target)
 
 AMateria	&AMateria::operator=(AMateria const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling AMateria::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
+		this->_type = rhs._type;
 	return *this;
 }
 

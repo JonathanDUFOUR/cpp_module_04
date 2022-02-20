@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 05:35:55 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/18 09:31:05 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 15:56:15 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@ class AMateria
 {
 protected:
 	// Attributes
-	std::string	type;
+	std::string	_type;
 
 public:
 	// Constructors
-	AMateria(void);
+	AMateria(std::string const &type = std::string("defaultType"));
 	AMateria(AMateria const &src);
-	AMateria(std::string const &type);
 
 	// Destructors
 	virtual ~AMateria(void);

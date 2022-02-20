@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:25:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:22:48 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:27:40 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,21 @@
 // ************************************************************************** //
 
 Cure::Cure(void) :
-	AMateria("cure")
+	AMateria(std::string("cure"))
 {
-	std::cout
-	<< "Creating Cure"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating Cure"
+		<< std::endl;
 }
 
 Cure::Cure(Cure const &src) :
-	AMateria("cure")
+	AMateria(src._type)
 {
-	std::cout
-	<< "Creating Cure"
-	<< std::endl;
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating Cure"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -39,9 +40,10 @@ Cure::Cure(Cure const &src) :
 
 Cure::~Cure(void)
 {
-	std::cout
-	<< "Destroying Cure"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying Cure"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -50,6 +52,10 @@ Cure::~Cure(void)
 
 void	Cure::use(ICharacter &target)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Cure::use()"
+		<< std::endl;
 	std::cout
 	<< "* heals "
 	<< target.getName()
@@ -59,7 +65,11 @@ void	Cure::use(ICharacter &target)
 
 AMateria	*Cure::clone(void) const
 {
-	return new Cure();
+	if (DEBUG)
+		std::cout
+		<< "Calling Cure::clone()"
+		<< std::endl;
+	return new Cure(*this);
 }
 
 // ************************************************************************* //
@@ -68,10 +78,12 @@ AMateria	*Cure::clone(void) const
 
 Cure	&Cure::operator=(Cure const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Cure::operator=()"
+		<< std::endl;
 	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
+		this->_type = rhs._type;
 	return *this;
 }
 

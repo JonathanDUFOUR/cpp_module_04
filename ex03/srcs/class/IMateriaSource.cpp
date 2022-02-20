@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 09:53:46 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:23:45 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/20 15:43:58 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@
 
 IMateriaSource::IMateriaSource(void)
 {
-	std::cout
-	<< "Creating IMateriaSource "
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating IMateriaSource"
+		<< std::endl;
 }
 
-IMateriaSource::IMateriaSource(IMateriaSource const &src)
+IMateriaSource::IMateriaSource(IMateriaSource const &src __attribute__((unused)))
 {
-	std::cout
-	<< "Creating IMateriaSource "
-	<< std::endl;
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating IMateriaSource"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -37,9 +38,10 @@ IMateriaSource::IMateriaSource(IMateriaSource const &src)
 
 IMateriaSource::~IMateriaSource(void)
 {
-	std::cout
-	<< "Destroying IMateriaSource "
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying IMateriaSource "
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -48,5 +50,9 @@ IMateriaSource::~IMateriaSource(void)
 
 IMateriaSource	&IMateriaSource::operator=(IMateriaSource const &rhs __attribute__((unused)))
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling IMateriaSource::operator=()"
+		<< std::endl;
 	return *this;
 }
