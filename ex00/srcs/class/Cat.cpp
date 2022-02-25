@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:25 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 17:34:37 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/25 09:59:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ Cat	&Cat::operator=(Cat const &rhs)
 		<< "Calling Cat::operator=()"
 		<< std::endl;
 	if (this != &rhs)
-		this->_type = rhs._type;
+		this->Animal::operator=(rhs);
 	return *this;
 }
 

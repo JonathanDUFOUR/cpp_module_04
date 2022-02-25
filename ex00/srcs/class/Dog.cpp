@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:32 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 17:42:42 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/25 09:58:23 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ Dog	&Dog::operator=(Dog const &rhs)
 		<< "Calling Dog::operator=()"
 		<< std::endl;
 	if (this != &rhs)
-		this->_type = rhs._type;
+		this->Animal::operator=(rhs);
 	return *this;
 }
 

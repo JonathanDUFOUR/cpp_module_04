@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:34:32 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 18:17:43 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:00:18 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ Dog	&Dog::operator=(Dog const &rhs)
 		<< std::endl;
 	if (this != &rhs)
 	{
-		this->_type = rhs._type;
+		this->Animal::operator=(rhs);
 		delete this->_mind;
 		this->_mind = new Brain(*rhs._mind);
 	}

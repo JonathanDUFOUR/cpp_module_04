@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 06:25:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 12:27:40 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:06:23 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ Cure	&Cure::operator=(Cure const &rhs)
 		<< "Calling Cure::operator=()"
 		<< std::endl;
 	if (this != &rhs)
-		this->_type = rhs._type;
+		this->AMateria::operator=(rhs);
 	return *this;
 }
 

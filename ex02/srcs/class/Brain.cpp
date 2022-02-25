@@ -6,11 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:35:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 19:19:35 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:15:42 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "class/Brain.hpp"
+
+typedef unsigned int	uint;
 
 // ************************************************************************** //
 //                                Constructors                                //
@@ -67,7 +69,7 @@ std::string	const &Brain::getIdea(int const idx) const
 
 Brain	&Brain::operator=(Brain const &rhs)
 {
-	unsigned int	i;
+	uint	i;
 
 	if (DEBUG)
 		std::cout

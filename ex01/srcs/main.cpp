@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:32:53 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/19 21:53:35 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/25 10:02:33 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	__test0(void)
 static void	__test1(void)
 {
 	Animal const	*herd[10];
-	unsigned int	i;
+	uint			i;
 
 	for (i = 0 ; i < 5 ; ++i)
 		herd[i] = new Cat();
