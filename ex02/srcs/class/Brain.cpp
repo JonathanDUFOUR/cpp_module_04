@@ -6,13 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:35:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/25 10:15:42 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:26:14 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "class/Brain.hpp"
-
-typedef unsigned int	uint;
 
 // ************************************************************************** //
 //                                Constructors                                //
@@ -28,13 +26,13 @@ Brain::Brain(void)
 
 Brain::Brain(Brain const &src)
 {
-	int	idx;
+	uint	idx(0);
 
 	if (DEBUG)
 		std::cout
 		<< "Creating Brain"
 		<< std::endl;
-	for (idx = 0 ; idx < 100 ; ++idx)
+	for ( ; idx < 100 ; ++idx)
 		this->_ideas[idx] = src._ideas[idx];
 }
 
@@ -54,7 +52,7 @@ Brain::~Brain(void)
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-std::string	const &Brain::getIdea(int const idx) const
+std::string	const &Brain::getIdea(uint const idx) const
 {
 	if (DEBUG)
 		std::cout
@@ -69,29 +67,28 @@ std::string	const &Brain::getIdea(int const idx) const
 
 Brain	&Brain::operator=(Brain const &rhs)
 {
-	uint	i;
+	uint	idx(0);
 
 	if (DEBUG)
 		std::cout
 		<< "Calling Brain::operator=()"
 		<< std::endl;
 	if (this != &rhs)
-		for (i = 0 ; i < 100 ; ++i)
-			this->_ideas[i] = rhs._ideas[i];
+		for ( ; idx < 100 ; ++idx)
+			this->_ideas[idx] = rhs._ideas[idx];
 	return *this;
 }
 
 std::ostream	&operator<<(std::ostream &o, Brain const &rhs)
 {
-	int	i;
+	uint	idx(0);
 
 	o << "Brain:" << std::endl
 	<< "\t" "ideas: {";
-	i = 0;
-	while (i < 100)
+	while (idx < 100)
 	{
-		o << rhs.getIdea(i);
-		if (++i < 100)
+		o << rhs.getIdea(idx);
+		if (++idx < 100)
 			o << ", ";
 	}
 	o << "}" << std::endl;

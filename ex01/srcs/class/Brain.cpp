@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:35:34 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 19:16:30 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:25:30 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ Brain::Brain(void)
 
 Brain::Brain(Brain const &src)
 {
-	int idx;
+	uint idx(0);
 
 	if (DEBUG)
 		std::cout
 		<< "Creating Brain"
 		<< std::endl;
-	for (idx = 0 ; idx < 100 ; ++idx)
+	for ( ; idx < 100 ; ++idx)
 		this->_ideas[idx] = src._ideas[idx];
 }
 
@@ -52,7 +52,7 @@ Brain::~Brain(void)
 //                          Public Member Functions                          //
 // ************************************************************************* //
 
-std::string const	&Brain::getIdea(int const idx) const
+std::string const	&Brain::getIdea(uint const idx) const
 {
 	if (DEBUG)
 		std::cout
@@ -67,25 +67,24 @@ std::string const	&Brain::getIdea(int const idx) const
 
 Brain	&Brain::operator=(Brain const &rhs)
 {
-	int	idx;
+	uint	idx(0);
 
 	if (DEBUG)
 		std::cout
 		<< "Calling Brain::operator=()"
 		<< std::endl;
 	if (this != &rhs)
-		for (idx = 0 ; idx < 100 ; ++idx)
+		for ( ; idx < 100 ; ++idx)
 			this->_ideas[idx] = rhs._ideas[idx];
 	return *this;
 }
 
 std::ostream	&operator<<(std::ostream &o, Brain const &rhs)
 {
-	int	idx;
+	uint	idx(0);
 
 	o << "Brain:" << std::endl
 	<< "\t" "ideas: {";
-	idx = 0;
 	while (idx < 100)
 	{
 		o << rhs.getIdea(idx);

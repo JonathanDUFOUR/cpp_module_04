@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:23:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 19:29:35 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:33:27 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ Character::Character(Character const &src) :
 	_name(src._name),
 	_inventory()
 {
-	int	idx;
+	uint	idx(0);
 
 	if (DEBUG)
 		std::cout
 		<< "Creating Character "
 		<< this->_name
 		<< std::endl;
-	for (idx = 0 ; idx < 4 ; ++idx)
+	for ( ; idx < 4 ; ++idx)
 		if (src._inventory[idx])
 			this->_inventory[idx] = src._inventory[idx]->clone();
 }
@@ -51,14 +51,14 @@ Character::Character(Character const &src) :
 
 Character::~Character(void)
 {
-	int	idx;
+	uint	idx(0);
 
 	if (DEBUG)
 		std::cout
 		<< "Destroying Character "
 		<< this->_name
 		<< std::endl;
-	for (idx = 0 ; idx < 4 ; ++idx)
+	for ( ; idx < 4 ; ++idx)
 		delete _inventory[idx];
 }
 
@@ -75,7 +75,7 @@ std::string const	&Character::getName(void) const
 	return this->_name;
 }
 
-std::string const	&Character::getSlotType(int const idx) const
+std::string const	&Character::getSlotType(uint const idx) const
 {
 	if (DEBUG)
 		std::cout
@@ -86,7 +86,7 @@ std::string const	&Character::getSlotType(int const idx) const
 	return Character::_emptyType;
 }
 
-AMateria	*Character::getSlot(int const idx) const
+AMateria	*Character::getSlot(uint const idx) const
 {
 	if (DEBUG)
 		std::cout
@@ -101,18 +101,18 @@ AMateria	*Character::getSlot(int const idx) const
 
 void	Character::equip(AMateria *m)
 {
-	int	idx;
+	uint	idx(0);
 
 	if (DEBUG)
 		std::cout
 		<< "Calling Character::equip()"
 		<< std::endl;
-	for (idx = 0 ; idx < 4 && this->_inventory[idx] ; ++idx);
+	for ( ; idx < 4 && this->_inventory[idx] ; ++idx);
 	if (idx < 4)
 		_inventory[idx] = m;
 }
 
-void	Character::unequip(int const idx)
+void	Character::unequip(uint const idx)
 {
 	if (DEBUG)
 		std::cout
@@ -121,7 +121,7 @@ void	Character::unequip(int const idx)
 	this->_inventory[idx] = NULL;
 }
 
-void	Character::use(int const idx, ICharacter &target)
+void	Character::use(uint const idx, ICharacter &target)
 {
 	if (DEBUG)
 		std::cout
@@ -143,7 +143,7 @@ void	Character::use(int const idx, ICharacter &target)
 
 Character	&Character::operator=(Character const &rhs)
 {
-	int	idx;
+	uint	idx(0);
 
 	if (DEBUG)
 		std::cout
@@ -152,7 +152,7 @@ Character	&Character::operator=(Character const &rhs)
 	if (this != &rhs)
 	{
 		this->_name = rhs._name;
-		for (idx = 0 ; idx < 4 ; ++idx)
+		for ( ; idx < 4 ; ++idx)
 		{
 			delete this->_inventory[idx];
 			this->_inventory[idx] = NULL;
@@ -165,12 +165,12 @@ Character	&Character::operator=(Character const &rhs)
 
 std::ostream	&operator<<(std::ostream &o, Character const &rhs)
 {
-	int	idx;
+	uint	idx(0);
 
 	o << "Character:" << std::endl
 	<< "\t" "name: " << rhs.getName() << std::endl
 	<< "\t" "inventory: " << std::endl;
-	for (idx = 0 ; idx < 4 ; ++idx)
+	for ( ; idx < 4 ; ++idx)
 		o << "\t\t" "[" << idx << "] " << rhs.getSlotType(idx) << std::endl;
 	return o;
 }
@@ -179,4 +179,4 @@ std::ostream	&operator<<(std::ostream &o, Character const &rhs)
 //                             Private Attributes                             //
 // ************************************************************************** //
 
-std::string const	Character::_emptyType = std::string("empty");
+std::string const	Character::_emptyType("empty");

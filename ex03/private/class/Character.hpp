@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:00:04 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 19:35:47 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:38:40 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Character : public ICharacter
 {
 private:
 	// Attributes
-	std::string					_name;
-	AMateria					*_inventory[4];
+	std::string	_name;
+	AMateria	*_inventory[4U];
 
 	static std::string const	_emptyType;
 
@@ -38,14 +38,14 @@ public:
 
 	// Accessors
 	std::string const	&getName(void) const;
-	std::string const	&getSlotType(int const idx) const;
+	std::string const	&getSlotType(uint const idx) const;
 
-	AMateria			*getSlot(int const idx) const;
+	AMateria			*getSlot(uint const idx) const;
 
 	// Member functions
 	void	equip(AMateria *m);
-	void	unequip(int const idx);
-	void	use(int const idx, ICharacter &target);
+	void	unequip(uint const idx);
+	void	use(uint const idx, ICharacter &target);
 
 	// Operators
 	Character	&operator=(Character const &rhs);

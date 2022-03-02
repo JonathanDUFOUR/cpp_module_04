@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 03:33:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/20 18:41:26 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:22:35 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@
 #  define DEBUG 0
 # endif
 
+typedef unsigned int	uint;
+
 class Brain
 {
 private:
 	// Attributes
-	std::string	_ideas[100];
+	std::string	_ideas[100U];
 
 public:
 	// Constructors
@@ -34,7 +36,7 @@ public:
 	virtual ~Brain(void);
 
 	// Accessors
-	std::string const	&getIdea(int const idx) const;
+	std::string const	&getIdea(uint const idx) const;
 
 	// Operators
 	Brain	&operator=(Brain const &rhs);
