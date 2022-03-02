@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 13:34:07 by jodufour          #+#    #+#             */
-/*   Updated: 2022/03/02 19:36:34 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 21:19:09 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ MateriaSource::MateriaSource(MateriaSource const &src) :
 	IMateriaSource(src),
 	_memory()
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
 		<< "Creating MateriaSource"
 		<< std::endl;
-	for ( ; idx < 4 ; ++idx)
+	for ( ; idx < 4U ; ++idx)
 		if (src._memory[idx])
 			this->_memory[idx] = src._memory[idx]->clone();
 }
@@ -47,13 +47,13 @@ MateriaSource::MateriaSource(MateriaSource const &src) :
 
 MateriaSource::~MateriaSource(void)
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
 		<< "Destroying MateriaSource"
 		<< std::endl;
-	for ( ; idx < 4 ; ++idx)
+	for ( ; idx < 4U ; ++idx)
 		delete this->_memory[idx];
 }
 
@@ -78,26 +78,26 @@ std::string const	&MateriaSource::getSlotType(uint const idx) const
 
 void	MateriaSource::learnMateria(AMateria *m)
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
 		<< "Calling MateriaSource::learnMateria()"
 		<< std::endl;
-	for ( ; idx < 4 && this->_memory[idx] ; ++idx);
-	if (idx < 4)
+	for ( ; idx < 4U && this->_memory[idx] ; ++idx);
+	if (idx < 4U)
 		_memory[idx] = m;
 }
 
 AMateria	*MateriaSource::createMateria(std::string const &type)
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
 		<< "Calling MateriaSource::createMateria()"
 		<< std::endl;
-	for ( ; idx < 4 && this->_memory[idx] ; ++idx)
+	for ( ; idx < 4U && this->_memory[idx] ; ++idx)
 		if (!this->_memory[idx]->getType().compare(type))
 			return this->_memory[idx]->clone();
 	return NULL;
@@ -109,7 +109,7 @@ AMateria	*MateriaSource::createMateria(std::string const &type)
 
 MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
@@ -117,7 +117,7 @@ MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 		<< std::endl;
 	if (this != &rhs)
 	{
-		for ( ; idx < 4 ; ++idx)
+		for ( ; idx < 4U ; ++idx)
 		{
 			delete this->_memory[idx];
 			this->_memory[idx] = NULL;
@@ -130,11 +130,11 @@ MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 
 std::ostream	&operator<<(std::ostream &o, MateriaSource const &rhs)
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	o << "MateriaSource:" << std::endl
 	<< "\t" "memory:" << std::endl;
-	for ( ; idx < 4 ; ++idx)
+	for ( ; idx < 4U ; ++idx)
 		o << "\t\t" "[" << idx << "] " << rhs.getSlotType(idx) << std::endl;
 	return o;
 }

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 07:23:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/03/02 19:33:27 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 21:18:20 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ Character::Character(Character const &src) :
 	_name(src._name),
 	_inventory()
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
 		<< "Creating Character "
 		<< this->_name
 		<< std::endl;
-	for ( ; idx < 4 ; ++idx)
+	for ( ; idx < 4U ; ++idx)
 		if (src._inventory[idx])
 			this->_inventory[idx] = src._inventory[idx]->clone();
 }
@@ -51,14 +51,14 @@ Character::Character(Character const &src) :
 
 Character::~Character(void)
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
 		<< "Destroying Character "
 		<< this->_name
 		<< std::endl;
-	for ( ; idx < 4 ; ++idx)
+	for ( ; idx < 4U ; ++idx)
 		delete _inventory[idx];
 }
 
@@ -101,14 +101,14 @@ AMateria	*Character::getSlot(uint const idx) const
 
 void	Character::equip(AMateria *m)
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
 		<< "Calling Character::equip()"
 		<< std::endl;
-	for ( ; idx < 4 && this->_inventory[idx] ; ++idx);
-	if (idx < 4)
+	for ( ; idx < 4U && this->_inventory[idx] ; ++idx);
+	if (idx < 4U)
 		_inventory[idx] = m;
 }
 
@@ -143,7 +143,7 @@ void	Character::use(uint const idx, ICharacter &target)
 
 Character	&Character::operator=(Character const &rhs)
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
@@ -152,7 +152,7 @@ Character	&Character::operator=(Character const &rhs)
 	if (this != &rhs)
 	{
 		this->_name = rhs._name;
-		for ( ; idx < 4 ; ++idx)
+		for ( ; idx < 4U ; ++idx)
 		{
 			delete this->_inventory[idx];
 			this->_inventory[idx] = NULL;
@@ -165,12 +165,12 @@ Character	&Character::operator=(Character const &rhs)
 
 std::ostream	&operator<<(std::ostream &o, Character const &rhs)
 {
-	uint	idx(0);
+	uint	idx(0U);
 
 	o << "Character:" << std::endl
 	<< "\t" "name: " << rhs.getName() << std::endl
 	<< "\t" "inventory: " << std::endl;
-	for ( ; idx < 4 ; ++idx)
+	for ( ; idx < 4U ; ++idx)
 		o << "\t\t" "[" << idx << "] " << rhs.getSlotType(idx) << std::endl;
 	return o;
 }

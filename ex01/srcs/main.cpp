@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:32:53 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/25 10:02:33 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 21:16:50 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ static void	__test0(void)
 static void	__test1(void)
 {
 	Animal const	*herd[10];
-	uint			i;
+	uint			idx(0U);
 
-	for (i = 0 ; i < 5 ; ++i)
-		herd[i] = new Cat();
-	for ( ; i < 10 ; ++i)
-		herd[i] = new Dog();
-	for (i = 0 ; i < 10 ; ++i)
-		std::cout << *herd[i] << std::endl;
-	for (i = 0 ; i < 10 ; ++i)
-		delete herd[i];
+	for ( ; idx < 5U ; ++idx)
+		herd[idx] = new Cat();
+	for ( ; idx < 10U ; ++idx)
+		herd[idx] = new Dog();
+	for (idx = 0 ; idx < 10U ; ++idx)
+		std::cout << *herd[idx] << std::endl;
+	for (idx = 0 ; idx < 10U ; ++idx)
+		delete herd[idx];
 }
 
 static void	__test2(void)
