@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/28 20:30:55 by jodufour          #+#    #+#              #
-#    Updated: 2022/05/20 01:56:50 by jodufour         ###   ########.fr        #
+#    Updated: 2022/10/29 08:16:21 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ NAME		=	ex01.out
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR		=	srcs/
-OBJ_DIR		=	objs/
-PRV_DIR		=	private/
+SRC_DIR		=	srcs
+OBJ_DIR		=	objs
+PRV_DIR		=	private
 
 ######################################
 #            SOURCE FILES            #
@@ -48,7 +48,7 @@ SRC			=	\
 #            OBJECT FILES            #
 ######################################
 OBJ			=	${SRC:.cpp=.o}
-OBJ			:=	${addprefix ${OBJ_DIR}, ${OBJ}}
+OBJ			:=	${addprefix ${OBJ_DIR}/, ${OBJ}}
 
 DEP			=	${OBJ:.o=.d}
 
@@ -81,7 +81,7 @@ all: ${NAME}
 
 -include ${DEP}
 
-${OBJ_DIR}%.o: ${SRC_DIR}%.cpp
+${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp
 	@${MKDIR} ${@D}
 	${CXX} $< ${CXXFLAGS} ${OUTPUT_OPTION}
 
